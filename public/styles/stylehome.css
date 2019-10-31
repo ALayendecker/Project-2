@@ -1,0 +1,79 @@
+body {
+  background-color: #024edb;
+  font-family: "Varela Round", sans-serif;
+}
+
+.login {
+  width: 100%;
+}
+
+.card-title {
+  color: black;
+}
+
+.maincontainer {
+  margin-top: 5%;
+  color: rgb(255, 255, 255);
+}
+
+.section-left {
+  width: 80%;
+  height: auto;
+  background-color: #024edb;
+  margin: auto;
+}
+
+.section-right {
+  width: 80%;
+  width: 80%;
+  height: auto;
+  background-color: #024edb;
+  margin: auto;
+  padding-top: 40px;
+}
+
+.organize-icon {
+  width: 70%;
+  height: auto;
+  padding-bottom: 25px;
+}
+
+.join {
+  margin: auto;
+  text-align: center;
+}
+
+/* sign up css */
+
+.createcontainer {
+  width: 40%;
+  margin: auto;
+  padding-top: 25px;
+  color: #ddd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Full-width input fields */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #000000;
+  margin-bottom: 25px;
+}
