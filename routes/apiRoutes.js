@@ -30,6 +30,7 @@ module.exports = function(app) {
 
   //register: storing name, email and password and redirecting to home page after signup
   app.post("/user/create", function(req, res) {
+    console.log(req);
     bcrypt.hash(req.body.passwordsignup, saltRounds, function(err, hash) {
       db.User.create({
         name: req.body.usernamesignup,
