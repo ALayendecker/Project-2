@@ -74,7 +74,7 @@ input[type="password"]:focus {
 }
 
 hr {
-  border: 1px solid #000000;
+  border: 0.5px solid #000000;
   margin-bottom: 25px;
 }
 
@@ -94,10 +94,15 @@ button:hover {
   opacity: 1;
 }
 
+.form {
+  color: black;
+  background-color: rgb(245, 245, 245);
+}
+
 /* Extra styles for the cancel button */
 .cancelbtn {
   padding: 14px 20px;
-  background-color: #f44336;
+  background-color: #838383;
 }
 
 /* Float cancel and signup buttons and add an equal width */
