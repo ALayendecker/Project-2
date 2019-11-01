@@ -1,0 +1,107 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default">
+  <a class="navbar-brand" href="#">
+    <h1>quirk.</h1>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          </li>
+        </ul>
+      </div> -->
+</nav>
+
+<div class="maincontainer">
+  <div class="row">
+    <div class="col-7 text-center">
+      <section class="section-left">
+
+        <img class="organize-icon" src="../../client/images/ecommerce.png" alt="icon">
+
+        <br>
+
+        <h1>
+          Motivate yourself to achieve your goals with
+          <strong style="color:rgb(0, 0, 0)"> quirk.</strong>
+        </h1>
+
+      </section>
+    </div>
+    <div class="col-5">
+      <section class="section-right">
+        <div class="card">
+          <article class="card-body">
+            <h4 id="signInTitle" class="card-title text-center mb-4 mt-1">Sign in</h4>
+            <hr>
+            <p class="text-primary text-center">Let's Get Organized.</p>
+            <form>
+              {{#if user}}
+              <div class="form login-form">
+                <p>Logged in as <strong>{{user.username}}</strong></p>
+                <div class="buttons">
+                  <a class="button logout" href="#">Logout</a>
+                </div>
+              </div>
+              {{else}}
+              <div class="form login-form">
+                <input type="text" name="username" placeholder="username">
+                <input type="password" name="password" placeholder="password">
+                <div class="buttons">
+                  <button class="button login">Login</button>
+                  <a id="tempNormalRegister" class="button signup" href="/register">Signup</a>
+                </div>
+              </div>
+              <div class="form signup-form">
+                <input type="text" name="username" placeholder="username">
+                <input type="email" name="email" placeholder="email">
+                <input type="password" name="password" placeholder="password">
+                <div class="buttons">
+                  <button class="button signup">Signup</button>
+                  <a class="button login" id="login-redirect" href="/">Aldready have an account? Login instead</a>
+                </div>
+              </div>
+              {{/if}}
+            </form>
+
+          </article>
+        </div> <!-- card.// -->
+
+        <br>
+
+        <DIV class="join">
+          <h6>
+            It's time to have fun when you get things done! Join
+            millions and improve your life one task at a time.
+          </h6>
+
+          <a id="tempOrangeRegister" class="signup btn btn-warning center-block" href="/register"> Create an account!
+          </a>
+          {{!-- <button type="submit" class="btn btn-warning center-block" id="createAccount"> Create an account! </button> --}}
+
+        </DIV>
+
+
+
+        </aside> <!-- col.// -->
+    </div> <!-- row.// -->
+
+
+  </div>
+
+
+
+  </section>
+</div>
+</div>
+</div>

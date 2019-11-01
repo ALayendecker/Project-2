@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "exampledb",
+    "database": "proj2test",
     "host": "localhost",
     "dialect": "mysql"
   },
