@@ -1,3 +1,68 @@
+/* body {
+  font-size: 18px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form {
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  box-shadow:  0 7px 20px rgba(0,0,0,0.19), 0 0px 6px rgba(0,0,0,0.23);
+  padding: 15px;
+  text-align: center;
+}
+
+.form input {
+  font-size: 15px;
+  padding: 12px;
+  box-shadow: inset 0 0 2px 2px rgba(0, 0, 0, .1);
+  border: none;
+}
+
+input + input, .form .buttons {
+  margin-top: 15px;
+}
+
+.buttons {
+  display: flex;
+}
+
+.buttons button {
+  flex: 1;
+}
+
+.button,
+.button:hover,
+.button:active,
+.button:visited {
+  cursor: pointer;
+  flex: 1;
+  padding: 10px;
+  text-decoration: none;
+  background: #f1f1f1;
+  color: #000;
+  text-align: center;
+  border: none;
+  box-shadow: none;
+  font-size: 16px;
+}
+
+.button + .button {
+  margin-left: 15px;
+}
+
+.login-form .login {
+  flex: 2;
+}
+
+.signup-form .signup {
+  flex: 2;
+} */
+
 body {
   background-color: #024edb;
   font-family: "Varela Round", sans-serif;
@@ -58,7 +123,8 @@ body {
 
 /* Full-width input fields */
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
