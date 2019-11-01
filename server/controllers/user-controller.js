@@ -46,7 +46,9 @@ router.post("/login", async (req, res) => {
   try {
     // we will cover the user authenticate method in the next section
     let user = await User.authenticate(username, password);
-
+    console.log("--------------");
+    console.log(user);
+    console.log("--------------");
     return res.json(user);
   } catch (err) {
     return res.status(400).send("invalid username or password");
