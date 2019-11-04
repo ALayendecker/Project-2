@@ -145,7 +145,8 @@ hr {
 }
 
 /* Set a style for all buttons */
-button {
+.signup,
+.login {
   background-color: #4caf50;
   color: white;
   padding: 14px 20px;
@@ -169,6 +170,10 @@ button:hover {
 .cancelbtn {
   padding: 14px 20px;
   background-color: #838383;
+}
+
+.list-group-item {
+  line-height: 2.5;
 }
 
 /* Float cancel and signup buttons and add an equal width */

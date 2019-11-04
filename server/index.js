@@ -5,6 +5,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var exphbs = require("express-handlebars");
 var customAuthMiddleware = require("./middleware/custom-auth-middleware");
+// var db = require("./models");
 
 // controller imports
 var userController = require("./controllers/user-controller");
@@ -49,6 +50,14 @@ app.use(viewsController);
 // Requiring our models for syncing
 const db = require("./models/index");
 
+
+var syncOptions = { force: false };
+
+// If running a test, set syncOptions.force to true
+// clearing the `testdb`
+if (process.env.NODE_ENV === "test") {
+  syncOptions.force = true;
+}
 // sync our sequelize models and then start server
 db.sequelize.sync().then(() => {
   // inside our db sync callback, we start the server.
