@@ -167,8 +167,9 @@ button:hover {
 }
 
 .foot {
+  margin-top: 10px;
   bottom: 0;
-  position: absolute;
+  position: relative;
   width: 100%;
 }
 
@@ -186,6 +187,8 @@ button:hover {
 
 .list-group-item {
   line-height: 2.5;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 /* Float cancel and signup buttons and add an equal width */
