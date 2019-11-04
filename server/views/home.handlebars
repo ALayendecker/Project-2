@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="/me">
     <h1>quirk.</h1>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
@@ -42,7 +42,7 @@
       <section class="section-right">
         <div class="card">
           <article class="card-body">
-            <h4 id="signInTitle" class="card-title text-center mb-4 mt-1">Sign in</h4>
+            <h4 id="signInTitle" class="card-title text-center mb-4 mt-1">Signed in</h4>
             <hr>
             <p class="text-primary text-center">Let's Get Organized.</p>
             <form>
@@ -68,7 +68,7 @@
                 <input type="password" name="password" placeholder="password">
                 <div class="buttons">
                   <button class="button signup">Signup</button>
-                  <a class="button login" id="login-redirect" href="/">Aldready have an account? Login instead</a>
+                  <a class="button" id="login-redirect" href="/">Already have an account? Login instead</a>
                 </div>
               </div>
               {{/if}}
@@ -98,6 +98,16 @@
 
 
   </div>
+  {{#if user}}
+  <div class="form foot">
+    <p>Logged in as <strong>{{user.username}}</strong></p>
+    <div class="buttons">
+      <a class="button logout" id="login-redirect" href="/">Logout</a>
+    </div>
+  </div>
+  {{/if}}
 
-
+</div>
+<div class="game"> <a href="https://techiestechguide.com/files/trex.html" target="_blank"><i
+      class="fas fa-gamepad fa-3x"></i></a>
 </div>

@@ -166,6 +166,18 @@ button:hover {
   background-color: rgb(245, 245, 245);
 }
 
+.foot {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.game {
+  top: 80px;
+  right: 15px;
+  position: absolute;
+}
+
 /* Extra styles for the cancel button */
 .cancelbtn {
   padding: 14px 20px;
