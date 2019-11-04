@@ -7,6 +7,7 @@ const router = express.Router();
 // index.js file takes care of the exporting for us and the
 // syntax below is called destructuring, its an es6 feature
 const { User } = require("../models");
+var db = require("../models");
 
 /* Register Route
 ========================================================= */
@@ -88,11 +89,53 @@ router.delete("/logout", async (req, res) => {
 //   if (req.user) {
 //     console.log(req);
 //     console.log(req.user);
-//     // res.render("HANDLEBARSNAME", req.user)
+//     res.render("workspace", req.user);
 //     return res.send(req.user);
 //   }
 //   res.status(404).send({ errors: [{ message: "missing auth token" }] });
 // });
 
 // export the router so we can pass the routes to our server
+
+// -----apiRoutes-----
+router.get("/api/boards", function(req, res) {
+  db.Board.findAll({}).then(function(dbBoards) {
+    res.json(dbBoards);
+  });
+});
+
+router.get("/api/tasks", function(req, res) {
+  db.Task.findAll({}).then(function(dbTasks) {
+    res.json(dbTasks);
+  });
+});
+
+// Create a new board
+router.post("/api/boards", function(req, res) {
+  db.Board.create(req.body).then(function(dbBoard) {
+    res.json(dbBoard);
+  });
+});
+
+router.post("/api/tasks", function(req, res) {
+  db.Task.create(req.body).then(function(dbTask) {
+    res.json(dbTask);
+  });
+});
+
+// Delete an board by id
+router.delete("/api/boards/:id", function(req, res) {
+  db.Board.destroy({ where: { id: req.params.id } }).then(function(dbBoard) {
+    res.json(dbBoard);
+  });
+});
+
+router.delete("/api/tasks/:id", function(req, res) {
+  db.Task.destroy({ where: { id: req.params.id } }).then(function(dbTask) {
+    res.json(dbTask);
+  });
+});
+
+// -----endapiRoutes-----
+
 module.exports = router;

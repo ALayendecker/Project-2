@@ -27,6 +27,10 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(AuthToken);
   };
 
+  // User.associate = function({ Board }) {
+  //   User.hasMany(Board);
+  // };
+
   // This is a class method, it is not called on an individual
   // user object, but rather the class as a whole.
   // e.g. User.authenticate('user1', 'password1234')
