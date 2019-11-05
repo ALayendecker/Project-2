@@ -20,6 +20,9 @@ $(function() {
   function validInput(names) {
     for (let i = 0; i < names.length; i++) {
       if (!$('[name="' + names[i] + '"]').val()) {
+        $("#formHeader").html(
+          "<p style='color: red'>Please enter all fields.</p>"
+        );
         return false;
       }
     }
@@ -36,18 +39,26 @@ $(function() {
         password: $('[name="password"]').val()
       }
     })
-      .then(({ user, authToken }) => {
-        $.cookie("auth_token", authToken.token, { expires: 7 });
-        if (!user) throw new Error("invalid username or password");
-        // $.ajax({
-        //   url: "/me",
-        //   type: "POST"
-        // });
-        window.location = "/me";
-        // console.log("--------------");
-        // console.log(user);
-        // console.log(authToken);
-        // console.log("--------------");
+      .then(data => {
+        // console.log(data);
+        if (data === "error from user controller") {
+          $("#formHeader").html(
+            "<p style='color: red'>Invalid Username or Password</p>"
+          );
+        } else {
+          console.log("it works fine");
+          $.cookie("auth_token", data.authToken.token, { expires: 7 });
+          if (!data.user) throw new Error("invalid username or password");
+          // $.ajax({
+          //   url: "/me",
+          //   type: "POST"
+          // });
+          window.location = "/me";
+          // console.log("--------------");
+          // console.log(user);
+          // console.log(authToken);
+          // console.log("--------------");
+        }
       })
       .catch(err => alert(err.responseText));
   }
@@ -64,12 +75,17 @@ $(function() {
         password: $('[name="password"]').val()
       }
     })
-      .then(({ user, authToken }) => {
-        if (user && authToken.token) {
-          $.cookie("auth_token", authToken.token, { expires: 7 });
-          window.location = "/me";
+      .then(data => {
+        if (data === "error from user controller register") {
+          $("#formHeader").html(
+            "<p style='color: red'>User already exists or you have an invalid input please try again</p>"
+          );
+          // alert(
+          //   "User already exists or you have an invalid input please try again"
+          // );
         } else {
-          throw new Error("something went wrong");
+          $.cookie("auth_token", data.authToken.token, { expires: 7 });
+          window.location = "/me";
         }
       })
       .catch(err => alert(err.responseText));
@@ -211,10 +227,14 @@ $(function() {
       method: "PUT",
       url: "/user",
       data: {
-        currentUsername: $("#currentUsername").val().trim(),
-        newUsername: $("#newUsername").val().trim(),
+        currentUsername: $("#currentUsername")
+          .val()
+          .trim(),
+        newUsername: $("#newUsername")
+          .val()
+          .trim()
       }
-    })
+    });
   }
 
   $submitBtn.on("click", handleFormSubmit);
