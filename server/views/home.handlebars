@@ -96,6 +96,18 @@
 
 
   </div>
+  {{#if user}}
+  <div class="form foot">
+    <p>Logged in as <strong>{{user.username}}</strong></p>
+    <div class="buttons">
+      <a class="button logout" id="login-redirect" href="/">Logout</a>
+      <a href="/settings">Change Username</a>
+    </div>
+  </div>
+  {{/if}}
+
+
+  </div>
   <div class="game"> <a href="https://techiestechguide.com/files/trex.html" target="_blank"><i
         class="fas fa-gamepad fa-3x" style="color: rgba(255, 255, 255, 0.5)"></i></a>
   </div>

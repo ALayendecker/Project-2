@@ -206,9 +206,20 @@ $(function() {
     });
   };
 
+  function updateUsername() {
+    $.ajax({
+      method: "PUT",
+      url: "/user",
+      data: {
+        currentUsername: $("#currentUsername").val().trim(),
+        newUsername: $("#newUsername").val().trim(),
+      }
+    })
+  }
+
   $submitBtn.on("click", handleFormSubmit);
   $(document).on("click", ".deleteBoard", handleDeleteBtnClick);
   $(document).on("click", ".addTask", handleTasks);
   $(document).on("click", ".deleteTask", handleTaskDeleteBtnClick);
-  // $taskList.on("click", ".deleteTask", handleTaskDeleteBtnClick);
+  $("#updateUsername").on("click", updateUsername);
 });
