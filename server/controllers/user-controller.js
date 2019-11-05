@@ -29,7 +29,7 @@ router.post("/register", async (req, res) => {
     // client { user, authToken }
     return res.json(data);
   } catch (err) {
-    return res.status(400).send(err);
+    return res.send("error from user controller register");
   }
 });
 
@@ -37,13 +37,11 @@ router.post("/register", async (req, res) => {
 ========================================================= */
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
-
   // if the username / password is missing, we use status code 400
   // indicating a bad request was made and send back a message
   if (!username || !password) {
     return res.status(400).send("Request missing username or password param");
   }
-
   try {
     // we will cover the user authenticate method in the next section
     let user = await User.authenticate(username, password);
@@ -52,7 +50,7 @@ router.post("/login", async (req, res) => {
     console.log("--------------");
     return res.json(user);
   } catch (err) {
-    return res.status(400).send("invalid username or password");
+    return res.send("error from user controller");
   }
 });
 
@@ -139,13 +137,16 @@ router.delete("/api/tasks/:id", function(req, res) {
 router.put("/user", function(req, res) {
   // Update takes in an object describing the properties we want to update, and
   // we use where to describe which objects we want to update
-  db.User.update({
-    username: req.body.newUsername,
-  }, {
-    where: {
-      username: req.body.currentUsername
+  db.User.update(
+    {
+      username: req.body.newUsername
+    },
+    {
+      where: {
+        username: req.body.currentUsername
+      }
     }
-  }).then(function(dbUser) {
+  ).then(function(dbUser) {
     res.json(dbUser);
   });
 });
