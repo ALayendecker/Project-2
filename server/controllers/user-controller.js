@@ -136,6 +136,20 @@ router.delete("/api/tasks/:id", function(req, res) {
   });
 });
 
+router.put("/user", function(req, res) {
+  // Update takes in an object describing the properties we want to update, and
+  // we use where to describe which objects we want to update
+  db.User.update({
+    username: req.body.newUsername,
+  }, {
+    where: {
+      username: req.body.currentUsername
+    }
+  }).then(function(dbUser) {
+    res.json(dbUser);
+  });
+});
+
 // -----endapiRoutes-----
 
 module.exports = router;

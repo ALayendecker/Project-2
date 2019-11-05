@@ -3,7 +3,7 @@ const router = express.Router();
 var db = require("../models");
 
 router.get("/", (req, res) => res.render("home", { user: req.user }));
-// router.get("/me", (req, res) => res.render("workspace", { user: req.user }));
+router.get("/settings", (req, res) => res.render("settings", { user: req.user }));
 router.get("/register", (req, res) => res.render("home", { user: req.user }));
 
 // -----htmlRoutes-----
