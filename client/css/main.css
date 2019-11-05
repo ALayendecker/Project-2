@@ -1,71 +1,14 @@
-/* body {
-  font-size: 18px;
+.navbar {
+  background-color: white;
 }
-
-h1 {
-  text-align: center;
-}
-
-.form {
-  margin: 50px auto;
-  display: flex;
-  flex-direction: column;
-  max-width: 400px;
-  box-shadow:  0 7px 20px rgba(0,0,0,0.19), 0 0px 6px rgba(0,0,0,0.23);
-  padding: 15px;
-  text-align: center;
-}
-
-.form input {
-  font-size: 15px;
-  padding: 12px;
-  box-shadow: inset 0 0 2px 2px rgba(0, 0, 0, .1);
-  border: none;
-}
-
-input + input, .form .buttons {
-  margin-top: 15px;
-}
-
-.buttons {
-  display: flex;
-}
-
-.buttons button {
-  flex: 1;
-}
-
-.button,
-.button:hover,
-.button:active,
-.button:visited {
-  cursor: pointer;
-  flex: 1;
-  padding: 10px;
-  text-decoration: none;
-  background: #f1f1f1;
-  color: #000;
-  text-align: center;
-  border: none;
-  box-shadow: none;
-  font-size: 16px;
-}
-
-.button + .button {
-  margin-left: 15px;
-}
-
-.login-form .login {
-  flex: 2;
-}
-
-.signup-form .signup {
-  flex: 2;
-} */
 
 body {
-  background-color: #024edb;
+  background-color: #000000;
   font-family: "Varela Round", sans-serif;
+}
+
+.letsget {
+  color: #000000;
 }
 
 .login {
@@ -84,7 +27,7 @@ body {
 .section-left {
   width: 80%;
   height: auto;
-  background-color: #024edb;
+
   margin: auto;
 }
 
@@ -92,7 +35,7 @@ body {
   width: 80%;
   width: 80%;
   height: auto;
-  background-color: #024edb;
+
   margin: auto;
   padding-top: 40px;
 }
@@ -134,7 +77,8 @@ input[type="email"] {
 }
 
 input[type="text"]:focus,
-input[type="password"]:focus {
+input[type="password"]:focus,
+input[type="email"]:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -147,7 +91,7 @@ hr {
 /* Set a style for all buttons */
 .signup,
 .login {
-  background-color: #4caf50;
+  background-color: #000000;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -166,11 +110,15 @@ button:hover {
   background-color: rgb(245, 245, 245);
 }
 
-.foot {
-  margin-top: 10px;
+.footer {
+  position: fixed;
   bottom: 0;
-  position: relative;
   width: 100%;
+  /* Set the fixed height of the footer here */
+  height: auto;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+  text-align: center;
 }
 
 .game {
@@ -180,6 +128,15 @@ button:hover {
 }
 
 /* Extra styles for the cancel button */
+
+.navbar-right {
+  margin-top: 10px;
+}
+
+#login-redirect {
+  color: #000000;
+}
+
 .cancelbtn {
   padding: 14px 20px;
   background-color: #838383;
@@ -201,6 +158,7 @@ button:hover {
 /* Add padding to container elements */
 .container {
   padding: 16px;
+  margin-bottom: 55px;
 }
 
 /* Clear floats */
@@ -216,4 +174,21 @@ button:hover {
   .signupbtn {
     width: 100%;
   }
+}
+
+/* links */
+a:link {
+  color: rgb(0, 0, 0);
+}
+a:visited {
+  color: black;
+}
+a:hover {
+  color: rgb(0, 0, 0);
+}
+a:focus {
+  color: rgb(0, 0, 0);
+}
+a:active {
+  color: rgb(0, 0, 0);
 }

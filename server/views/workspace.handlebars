@@ -1,29 +1,48 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default">
-  <a class="navbar-brand" href="/">
-    <h1>quirk.</h1>
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<style>
+  body {
+    background: url("https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1430&q=80");
+    no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+</style>
+<nav class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <h1> <a class="" href="/me">quirk.</a> </h1>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+
+      <p>Welcome, <strong>{{user.username}}</strong> | <a class="button logout " id="login-redirect" href="/">Logout</a>
+      </p>
+
+    </ul>
+  </div>
 </nav>
+
+
+
+<div> </div>
 
 <div id="home">
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
-        <h1>{{user.username}}</h1>
-        <h2>Welcome!</h2>
+
         <form class="clearfix mb-4">
           <div class="form-group">
-            <label for="board-text">Board Text</label>
+            <h3><label for="board-text">Create A Board.</label></h3>
+
             <input type="text" id="board-text" class="form-control" aria-describedby="board-text"
               placeholder="Enter Board Text">
           </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
+          <button id="submit" class="btn btn-warning float-right">Submit</button>
         </form>
-        <h3>Boards:</h3>
+        <h3>Boards.</h3>
         <ul id="board-list" class="list-group">
           {{#each boards}}
           <li data-id="{{this.id}}" class="list-group-item">
@@ -31,7 +50,7 @@
             <input data-id="{{this.id}}" type="text" id="task-text" class="form-control" aria-describedby="task-text"
               placeholder="Enter Task Text">
             <button class="btn btn-danger float-right deleteBoard">ｘ</button>
-            <button id="{{this.id}}" class="btn btn-success float-right addTask">Add Task</button>
+            <button id="{{this.id}}" class="btn btn-warning float-right addTask">Add Task</button>
             <ul id="task-list" class="list-group">
               {{#each dataValues.Tasks}}
               <li data-id="{{this.id}}" class="list-group-item">
@@ -49,9 +68,8 @@
 </div>
 
 
-<div class="form login-form foot">
-  <p>Logged in as <strong>{{user.username}}</strong></p>
-  <div class="buttons">
-    <a class="button logout" id="login-redirect" href="/">Logout</a>
-  </div>
-</div>
+<footer class="footer">
+
+  <i class="fas fa-copyright    "></i> 2019 quirk.
+
+</footer>
