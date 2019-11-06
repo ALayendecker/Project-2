@@ -169,6 +169,10 @@ button:hover {
   margin-bottom: 55px;
 }
 
+#showSubmit {
+  text-align: center;
+}
+
 /* Clear floats */
 .clearfix::after {
   content: "";
