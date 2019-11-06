@@ -155,9 +155,10 @@ router.delete("/api/tasks/:id", function(req, res) {
 
 router.put("/changeUsername", function(req, res) {
 
+
   db.User.count({ where: {username: req.body.currentUsername} }).then(function(count){
     if (count === 0) {
-      throw Error ('Current Username Does Not')
+      throw Error ('Current Username Does Not Exist')
     } else {
       db.User.update(
         {
@@ -175,23 +176,6 @@ router.put("/changeUsername", function(req, res) {
   })
     
 
-});
-
-router.put("/user", function(req, res) {
-  // Update takes in an object describing the properties we want to update, and
-  // we use where to describe which objects we want to update
-  db.User.update(
-    {
-      username: req.body.newUsername
-    },
-    {
-      where: {
-        username: req.body.currentUsername
-      }
-    }
-  ).then(function(dbUser) {
-    res.json(dbUser);
-  });
 });
 
 router.post("/api/adduser", function(req, res) {
@@ -226,28 +210,6 @@ router.post("/api/adduser", function(req, res) {
 });
 
 router.put("/changeUsername", function(req, res) {
-
-  db.User.count({ where: {username: req.body.currentUsername} }).then(function(count){
-    if (count === 0) {
-      throw Error ('Current Username Does Not')
-    } else {
-      db.User.update(
-        {
-          username: req.body.newUsername
-        },
-        {
-          where: {
-            username: req.body.currentUsername
-          }
-        }
-      ).then(function(dbUser) {
-        res.json(dbUser);
-      });
-    }
-  })
-    
-
-});
 
 
 
