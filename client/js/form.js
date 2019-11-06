@@ -1,4 +1,5 @@
 $(function() {
+
   if (window.location.pathname === "/") {
     $("#tempNormalRegister").attr("hidden", true);
     $(".signup-form").remove();
@@ -116,7 +117,6 @@ $(function() {
 
   var $boardText = $("#board-text");
   var $submitBtn = $("#submit");
-  var $taskList = $("#task-list");
 
   var taskAPI = {
     saveTask: function(task) {
@@ -222,10 +222,32 @@ $(function() {
     });
   };
 
+  var array = [];
+
+  function updateSuccess () {
+    $("#showSubmit").text(`Username updated successfully to ${$("#newUsername").val()}!`);
+    $("#currentUsername").val("");
+    $("#newUsername").val("");
+  }
+
+  function updateFail () {
+    $("#showSubmit").text(`Update unsuccessful. Your input was: ${$("#currentUsername").val()}.`);
+    $("#currentUsername").val("");
+    $("#newUsername").val("");
+  }
+
+  function waitForIt() {
+    if (array.indexOf("Success!") === -1) {
+      updateFail();
+    }
+  }
+
+
   function updateUsername() {
+
     $.ajax({
       method: "PUT",
-      url: "/user",
+      url: "/user/",
       data: {
         currentUsername: $("#currentUsername")
           .val()
@@ -233,9 +255,16 @@ $(function() {
         newUsername: $("#newUsername")
           .val()
           .trim()
-      }
-    });
-  }
+      },
+      success: function(){
+        updateSuccess();
+        array.push("Success!")
+     },
+    })
+
+    setTimeout(waitForIt, 100);
+    
+  };
 
   $submitBtn.on("click", handleFormSubmit);
   $(document).on("click", ".deleteBoard", handleDeleteBtnClick);
