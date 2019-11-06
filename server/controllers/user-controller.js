@@ -134,7 +134,7 @@ router.delete("/api/tasks/:id", function(req, res) {
   });
 });
 
-router.put("/user", function(req, res) {
+router.put("/changeUsername", function(req, res) {
 
   db.User.count({ where: {username: req.body.currentUsername} }).then(function(count){
     if (count === 0) {

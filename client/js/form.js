@@ -247,7 +247,7 @@ $(function() {
 
     $.ajax({
       method: "PUT",
-      url: "/user/",
+      url: "/changeUsername/",
       data: {
         currentUsername: $("#currentUsername")
           .val()
