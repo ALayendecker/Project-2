@@ -9,6 +9,16 @@ const router = express.Router();
 const { User } = require("../models");
 var db = require("../models");
 
+db.User.hasMany(db.AuthToken);
+db.AuthToken.belongsTo(db.User);
+
+db.Board.hasMany(db.Task, {
+  onDelete: "cascade"
+});
+db.Task.belongsTo(db.Board);
+
+db.Board.belongsToMany(db.User, { through: db.Middle });
+db.User.belongsToMany(db.Board, { through: db.Middle });
 /* Register Route
 ========================================================= */
 router.post("/register", async (req, res) => {
@@ -45,9 +55,9 @@ router.post("/login", async (req, res) => {
   try {
     // we will cover the user authenticate method in the next section
     let user = await User.authenticate(username, password);
-    console.log("--------------");
-    console.log(user);
-    console.log("--------------");
+    // console.log("--------------");
+    // console.log(user);
+    // console.log("--------------");
     return res.json(user);
   } catch (err) {
     return res.send("error from user controller");
@@ -109,9 +119,18 @@ router.get("/api/tasks", function(req, res) {
 });
 
 // Create a new board
+// router.post("/api/boards", function(req, res) {
+//   db.Board.create(req.body).then(function(dbBoard) {
+//     res.json(dbBoard);
+//   });
+// });
 router.post("/api/boards", function(req, res) {
-  db.Board.create(req.body).then(function(dbBoard) {
-    res.json(dbBoard);
+  db.Board.create({ text: req.body.text }).then(data => {
+    db.User.findOne({ where: { id: req.body.UserId } }).then(function(user) {
+      db.Board.findOne({ where: { id: data.id } }).then(function(board) {
+        user.addBoards([board]);
+      });
+    });
   });
 });
 
@@ -158,6 +177,96 @@ router.put("/changeUsername", function(req, res) {
 
 });
 
+router.put("/user", function(req, res) {
+  // Update takes in an object describing the properties we want to update, and
+  // we use where to describe which objects we want to update
+  db.User.update(
+    {
+      username: req.body.newUsername
+    },
+    {
+      where: {
+        username: req.body.currentUsername
+      }
+    }
+  ).then(function(dbUser) {
+    res.json(dbUser);
+  });
+});
+
+router.post("/api/adduser", function(req, res) {
+  // console.log(req.body);
+  // console.log(req.body.username);
+  // console.log(req.body.temporaryId);
+  // console.log("-----------");
+  db.Board.findOne({ where: { id: req.body.temporaryId } }).then(function(
+    board
+  ) {
+    // console.log(board);
+    if (board === null) {
+      return res.send("Board doesn't exist");
+    } else {
+      db.User.findOne({ where: { username: req.body.username } }).then(function(
+        user
+      ) {
+        // console.log(user);
+        if (user === null) {
+          return res.send("User doesn't exist");
+        } else {
+          try {
+            board.addUsers([user]);
+            return res.send("User successfully added to Board");
+          } catch (err) {
+            return res.send(err);
+          }
+        }
+      });
+    }
+  });
+});
+
+router.put("/changeUsername", function(req, res) {
+
+  db.User.count({ where: {username: req.body.currentUsername} }).then(function(count){
+    if (count === 0) {
+      throw Error ('Current Username Does Not')
+    } else {
+      db.User.update(
+        {
+          username: req.body.newUsername
+        },
+        {
+          where: {
+            username: req.body.currentUsername
+          }
+        }
+      ).then(function(dbUser) {
+        res.json(dbUser);
+      });
+    }
+  })
+    
+
+});
+
+
+
+router.put("/api/assignuser", function(req, res) {
+  // Update takes in an object describing the properties we want to update, and
+  // we use where to describe which objects we want to update
+  db.Task.update(
+    {
+      assignedUser: req.body.newAssignedUser
+    },
+    {
+      where: {
+        id: req.body.temporaryId
+      }
+    }
+  ).then(function(dbTask) {
+    res.json(dbTask);
+  });
+});
 // -----endapiRoutes-----
 
 module.exports = router;

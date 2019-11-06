@@ -43,7 +43,7 @@
             <input type="text" id="board-text" class="form-control" aria-describedby="board-text"
               placeholder="Enter Board Text">
           </div>
-          <button id="submit" class="btn btn-warning float-right">Submit</button>
+          <button id="submit" data-value={{user.id}} class="btn btn-warning float-right">Submit</button>
         </form>
         <h3>Boards.</h3>
         <ul id="board-list" class="list-group">
@@ -59,9 +59,20 @@
               <li data-id="{{this.id}}" class="list-group-item">
                 <a href="task/{{this.id}}">{{this.text}}</a>
                 <button id={{this.id}} class="btn btn-danger float-right deleteTask">ｘ</button>
+                {{!-- new button here --}}
+                <input type="text" data-value="userTask{{this.id}}" class="form-control" aria-describedby="task-text"
+                  placeholder="Assing User">
+                <button id="userTask{{this.id}}" class=" btn btn-success assignUser">Assign User</button>
+                <p>{{this.assignedUser}}</p>
+                {{!--  --}}
               </li>
               {{/each}}
             </ul>
+            {{!--  --}}
+            <input type="text" data-value="moreUser{{this.id}}" class="form-control" aria-describedby="task-text"
+              placeholder="Add New User (to access this Board)">
+            <button id="moreUser{{this.id}}" class=" btn btn-success addUser">Add User</button>
+            {{!--  --}}
           </li>
           {{/each}}
         </ul>
