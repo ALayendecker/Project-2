@@ -1,0 +1,206 @@
+.navbar {
+  background-color: white;
+}
+
+body {
+  background-color: #000000;
+  font-family: "Varela Round", sans-serif;
+}
+
+.letsget {
+  color: #000000;
+}
+
+.login {
+  width: 100%;
+}
+
+.card-title {
+  color: black;
+}
+
+.maincontainer {
+  margin-top: 5%;
+  color: rgb(255, 255, 255);
+}
+
+.settingscontainer {
+  margin-top: 5%;
+  color: rgb(255, 255, 255);
+  width: 50%;
+  margin: auto;
+  padding-top: 10%;
+}
+
+.section-left {
+  width: 80%;
+  height: auto;
+
+  margin: auto;
+}
+
+.section-right {
+  width: 80%;
+  width: 80%;
+  height: auto;
+
+  margin: auto;
+  padding-top: 40px;
+}
+
+.organize-icon {
+  width: 70%;
+  height: auto;
+  padding-bottom: 25px;
+}
+
+.join {
+  margin: auto;
+  text-align: center;
+}
+
+/* sign up css */
+
+.createcontainer {
+  width: 40%;
+  margin: auto;
+  padding-top: 25px;
+  color: #ddd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Full-width input fields */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 0.5px solid #000000;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+.signup,
+.login {
+  background-color: #000000;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+.form {
+  color: black;
+  background-color: rgb(245, 245, 245);
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: auto;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.game {
+  top: 80px;
+  right: 15px;
+  position: absolute;
+}
+
+/* Extra styles for the cancel button */
+
+.navbar-right {
+  margin-top: 10px;
+}
+
+#login-redirect {
+  color: #000000;
+}
+
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #838383;
+}
+
+.list-group-item {
+  line-height: 2.5;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn,
+.signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+  margin-bottom: 55px;
+}
+
+#showSubmit {
+  text-align: center;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn,
+  .signupbtn {
+    width: 100%;
+  }
+}
+
+/* links */
+a:link {
+  color: rgb(0, 0, 0);
+}
+a:visited {
+  color: black;
+}
+a:hover {
+  color: rgb(0, 0, 0);
+}
+a:focus {
+  color: rgb(0, 0, 0);
+}
+a:active {
+  color: rgb(0, 0, 0);
+}
