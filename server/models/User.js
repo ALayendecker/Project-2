@@ -23,9 +23,9 @@ module.exports = (sequelize, DataTypes) => {
 
   // set up the associations so we can make queries that include
   // the related objects
-  User.associate = function({ AuthToken }) {
-    User.hasMany(AuthToken);
-  };
+  // User.associate = function({ AuthToken }) {
+  //   User.hasMany(AuthToken);
+  // };
 
   // User.associate = function({ Board }) {
   //   User.hasMany(Board);

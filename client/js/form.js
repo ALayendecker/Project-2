@@ -172,18 +172,26 @@ $(function() {
     location.reload();
   };
 
+  function waitRefresh() {
+    setTimeout(refresh,150)
+  }
+
   var handleFormSubmit = function(event) {
     event.preventDefault();
-    console.log($boardText.val().trim());
+    // console.log($boardText.val().trim());
     var board = {
-      text: $boardText.val().trim()
+      text: $boardText.val().trim(),
+      UserId: $(this).data("value")
     };
 
-    API.saveBoard(board).then(function() {
-      refresh();
-    });
+    API.saveBoard(board)
+    // .then(function() {
+    //   refresh();
+    // });
 
     $boardText.val("");
+    console.log("waiting");
+    waitRefresh();
   };
 
   var handleTasks = function(event) {
@@ -196,7 +204,7 @@ $(function() {
       BoardId: $(this)[0].id
     };
     taskAPI.saveTask(task).then(function() {
-      refresh();
+      waitRefresh();
     });
 
     $("input[data-id='" + this.id + "']").val("");
@@ -208,7 +216,7 @@ $(function() {
       .attr("data-id");
 
     API.deleteBoard(idToDelete).then(function() {
-      refresh();
+      waitRefresh();
     });
   };
 
@@ -218,7 +226,7 @@ $(function() {
       .attr("data-id");
 
     taskAPI.deleteTask(idToDelete).then(function() {
-      refresh();
+      waitRefresh();
     });
   };
 
@@ -262,7 +270,7 @@ $(function() {
      },
     })
 
-    setTimeout(waitForIt, 100);
+    setTimeout(waitForIt, 150);
     
   };
 
@@ -271,4 +279,39 @@ $(function() {
   $(document).on("click", ".addTask", handleTasks);
   $(document).on("click", ".deleteTask", handleTaskDeleteBtnClick);
   $("#updateUsername").on("click", updateUsername);
+
+  $(document).on("click", ".addUser", addUserToBoard);
+  $(document).on("click", ".assignUser", assignUserToTask);
+
+  function addUserToBoard() {
+    // console.log(this.id);
+    // console.log(this.id.slice(8)); //to not repeat ids and fix it for the query
+    var newUser = $(`input[data-value=${this.id}]`).val();
+    // console.log(newUser);
+    var test = {
+      username: newUser,
+      temporaryId: this.id.slice(8)
+    };
+    $.ajax({
+      type: "POST",
+      url: "api/adduser",
+      data: test
+    }).then(response => console.log(response));
+  }
+
+  function assignUserToTask() {
+    // console.log(this.id);
+    // console.log(this.id.slice(8)); //to not repeat ids and fix it for the query
+    var newAssign = $(`input[data-value=${this.id}]`).val();
+    // console.log(newAssign);
+    $.ajax({
+      method: "PUT",
+      url: "api/assignuser",
+      data: {
+        newAssignedUser: newAssign,
+        temporaryId: this.id.slice(8)
+      }
+    }).then(response => console.log(response));
+    waitRefresh();
+  }
 });
