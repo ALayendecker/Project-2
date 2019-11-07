@@ -21,8 +21,8 @@ router.get("/me", function(req, res) {
     db.sequelize
       .query(
         `select b.id from Boards b
-    inner join middles m on m.boardid = b.id
-    inner join users u on u.id = m.userid
+    inner join Middles m on m.boardid = b.id
+    inner join Users u on u.id = m.userid
     where u.id = ?;`,
         { replacements: [req.user.id], type: db.Sequelize.QueryTypes.SELECT }
       )
