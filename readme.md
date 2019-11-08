@@ -163,7 +163,7 @@ Start a MySQL database and configure the server/config/config.json file accordin
 
 4. Dig in.
 
-<!-- USAGE EXAMPLES -->
+<!-- USAGE EXAMPLES  -->
 
 ## Usage
 
