@@ -64,6 +64,7 @@ Node Packages
 
 Special Mentions
 
+- [Authentication Guide - jgrisafe](https://medium.com/@jgrisafe/custom-user-authentication-with-express-sequelize-and-bcrypt-667c4c0edef5)
 - [Authentication Boilerplate - jgrisafe](https://github.com/jgrisafe/express-sequelize-authentication-boilerplate)
 - [othneildrew - Best README Template](https://github.com/othneildrew/Best-README-Template)
 
@@ -75,52 +76,61 @@ This app uses an MVC file structure. Displayed below.
 
 ```sh
 .
-| .env
-| .eslintrc.js
-| .gitignore
-| package-lock.json
-| package.json
-| readme.md
+|   .env
+|   .eslintrc.js
+|   .gitignore
+|   package-lock.json
+|   package.json
+|   readme.md
 |
 +---client
-| +---css
-| | main.css
-| |
-| +---images
-| | ecommerce.png
-| |
-| \---js
-| form.js
+|   +---css
+|   |       main.css
+|   |
+|   +---images
+|   |       background.jpg
+|   |       color_ecommerce.png
+|   |       ecommerce.png
+|   |
+|   \---js
+|           form.js
 |
 +---node_modules
 \---server
-| index.js
-|
-+---config
-| config.json
-|
-+---controllers
-| user-controller.js
-| views-controller.js
-|
-+---middleware
-| custom-auth-middleware.js
-|
-+---migrations
-| 20180311223110-create-user.js
-| 20180312045510-create-auth-token.js
-|
-+---models
-| AuthToken.js
-| index.js
-| User.js
-|
-\---views
-| home.handlebars
-| workspace.handlebars
-|
-\---layouts
-main.handlebars
+    |   index.js
+    |
+    +---config
+    |       config.json
+    |
+    +---controllers
+    |       user-controller.js
+    |       views-controller.js
+    |
+    +---middleware
+    |       custom-auth-middleware.js
+    |
+    +---migrations
+    |       20180311223110-create-user.js
+    |       20180312045510-create-auth-token.js
+    |
+    +---models
+    |       AuthToken.js
+    |       Board.js
+    |       index.js
+    |       Middle.js
+    |       Task.js
+    |       User.js
+    |
+    \---views
+        |   404.handlebars
+        |   board.handlebars
+        |   home.handlebars
+        |   settings.handlebars
+        |   task.handlebars
+        |   workspace.handlebars
+        |
+        \---layouts
+                main.handlebars
 ```
 
 <!-- GETTING STARTED -->
@@ -153,23 +163,21 @@ Start a MySQL database and configure the server/config/config.json file accordin
 
 4. Dig in.
 
-<!-- USAGE EXAMPLES -->
+<!-- USAGE EXAMPLES  -->
 
 ## Usage
 
 Simply visit (https://project-two-0.herokuapp.com/) click the 'Create Account' button and sign up! Then proceed to login with your newly created credentials.
 
-//
-//
-//
+You will then be able to add task boards add tasks inside those boards. You can also assign users to tasks as well!
+
+Enjoy your new found task productivity!
 
 ## Authentication
 
 We use Bcrypt to safely store your passwords on our database after it goes through no less than 10 'saltrounds' ensuring that your hashed password will keep your top secret to-do lists safe from prying eyes.
 
 Each time you log in you will also be provided a randomly generated cookie authentiacation parsed by npm cookie-parser. This cookie will preserve your login until you logoff or let the cookie expire after 7 days.
-
-#### placeholder
 
 <!-- CONTACT -->
 
