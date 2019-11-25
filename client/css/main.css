@@ -1,10 +1,16 @@
 .navbar {
   background-color: white;
+  width: 102vw;
 }
 
 body {
-  background-color: #000000;
+  /* background-color: #000000; */
   font-family: "Varela Round", sans-serif;
+  /* min-height: 100vh;
+  min-width: 100vw; */
+  background: url("../images/gradientBG.jpg") no-repeat fixed center;
+  background-size: cover;
+  overflow-x: hidden;
 }
 
 .letsget {
