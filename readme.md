@@ -13,6 +13,12 @@
     <br />
   </p>
 </p>
+<p align="center">
+  <h1 align="center">quirk.</h1>
+    <a href="https://project-two-0.herokuapp.com/"><strong>Deployment</strong></a>
+    <br />
+  </p>
+</p>
 
 <!-- TABLE OF CONTENTS -->
 
